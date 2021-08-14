@@ -7,14 +7,20 @@ int hashp(times)
     {
         printf("#");
     }
+    return times;
 }
 
 int main(void)
 {
     int value = get_int("Height: ");
+    int times = 0;
     for(int i = 0; i < value; i++)
     {
-        hashp(3);
+        if (times < value)
+        {
+            times++;
+        }
+        hashp(times);
         printf("\n");
     }    
 }
