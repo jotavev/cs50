@@ -9,18 +9,26 @@ int hashp(times)
     }
     return times;
 }
+int whitespace(times)
+{
+    for (int i = 0; i < times; i++)
+    {
+        printf(" ");
+    }
+    return times;
+}
 
 int main(void)
 {
-    int value = get_int("Height: ");
-    int times = 0;
-    for (int i = 0; i < value; i++)
+    int total = get_int("Height: ");
+    int times = 1;
+    int height = total;
+    for (int i = 0; i < height; i++)
     {
-        if (times < value)
-        {
-            times++;
-        }
+        total--;
+        whitespace(total);
         hashp(times);
+        times++;
         printf("\n");
     }    
 }
