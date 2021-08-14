@@ -14,7 +14,7 @@ int main(void)
 {
     int value = get_int("Height: ");
     int times = 0;
-    for(int i = 0; i < value; i++)
+    for (int i = 0; i < value; i++)
     {
         if (times < value)
         {
