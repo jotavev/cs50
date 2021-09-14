@@ -21,27 +21,53 @@ int conversor(float number)
 
 int main(void)
 {
-    //float recebido = get_valid_number();
-    //float troco = recebido;
-    //int coins = 0;
-    //printf("%f", recebido);
-
     float recebido = get_valid_number();
 
-    int converted = conversor(recebido);
+    int convertedNumber = conversor(recebido);
+
+    int coin = 0;
 
     do
     {
-        //verificar se da de fazer com as moedas????
-        //se der pra coisar a moeda
-            //moedas++
-            //recebido - o resultado anterior
-        //else
-            //troca pra proxima moeda
+        if (convertedNumber >= 25)
+        {
+            while (convertedNumber >= 25)
+            {
+                convertedNumber = convertedNumber - 25;
+                coin++;
+            }
+        }
 
+        else if (convertedNumber >= 10)
+        {
+            while (convertedNumber >= 10)
+            {
+                convertedNumber = convertedNumber - 10;
+                coin++;
+            }
+        }
 
+        else if (convertedNumber >= 5)
+        {
+            while (convertedNumber >= 5)
+            {
+                convertedNumber = convertedNumber - 5;
+                coin++;
+            }
+        }
+
+        else if (convertedNumber >= 1)
+        {
+            while (convertedNumber >= 1)
+            {
+                convertedNumber = convertedNumber - 1;
+                coin++;
+            }
+        }
     }
-    while (recebido != 0);
+    while (convertedNumber != 0);
+
+    printf("%i", coin);
 }
 
 // coins
