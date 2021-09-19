@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <cs50.h>
 
+int strtoint(string arr[])
+{
+    int decimal = (arr[1][0] - 48) * 10;
+    int numeral = arr[1][1] - 48;
+    int result = decimal + numeral;
+    return result;
+}
 
 int main(int argc, string argv[])
 {
-    int numeral = argv[1][1] - 48;
-    int decimal = (argv[1][0] - 48) * 10;
-    int cipher = numeral + decimal;
+    int cipher = strtoint(argv);
     if (argc == 2)
     {
         printf("você passou 2 paremetros parabens\n");
@@ -15,8 +20,7 @@ int main(int argc, string argv[])
     {
         printf("não passou 2 parametros");
     }
-    printf("%i", decimal);
-    printf("%i", numeral);
+    printf("%i", cipher);
 }
 
 
