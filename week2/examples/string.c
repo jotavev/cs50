@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <string.h>
 
 int main(void)
 {
+    int lenght = 0;
     string name = get_string("Input: ");
-    printf("Output: \n");
-    for (int i = 0; name[i] != '\0'; i++)
+    printf("Lenght: ");
+    for (int i = 0; i < strlen(name); i++)
     {
-        printf("%c\n", name[i]);
+        lenght += 1;
     }
-    printf("\n");
+    printf("%i\n", lenght);
 }
