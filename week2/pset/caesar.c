@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <cs50.h>
 
+//int get_valid_number(arr[])
+//{
+//    int leght;
+//    do 
+//    {
+//        leght = get_string("")  
+//    }
+//}
+
+//converter string to int
 int strtoint(string arr[])
 {
     int decimal = (arr[1][0] - 48) * 10;
