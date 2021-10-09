@@ -49,11 +49,18 @@ int strToInt(char arr[])
 
 int main(int argc, string argv[])
 {
+    if (argc != 2)
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+
+
     int checkDigits = isDigits(argv[1]);
 
     int arrayLenght = arraySize(argv[1]);
 
-    if (argc != 2 || checkDigits != 1 || arrayLenght > 2)
+    if (checkDigits != 1 || arrayLenght > 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
@@ -63,6 +70,12 @@ int main(int argc, string argv[])
 
     int cipher = strToInt(argv[1]);
 
+    string userText = get_string("plaintext:");
+    printf("Ciphertext: ");
+    for (int i = 0; userText[i] != '\0'; i++)
+    {
+        printf("%c", userText[i] + cipher);
+    }
 
     printf("\n\nthe array size is %i", arrayLenght);
 
