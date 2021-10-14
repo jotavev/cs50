@@ -32,7 +32,7 @@ int arraySize(char arr[])
 int strToInt(char arr[])
 {
     int lenght = strlen(arr);
-    int result;
+    int result = 0;
     if (lenght == 2)
     {
         int decimal = (arr[0] - 48) * 10;
@@ -47,6 +47,20 @@ int strToInt(char arr[])
     return result;
 }
 
+int charShift(string str, int number)
+{
+    for (int i = 0; str[i] != '\0'; i++)
+        if (str[i] == 32 || str[i] == 44)
+        {
+            printf("%c", str[i]);
+        }
+        else
+        {
+            printf("%c", str[i] + number);
+        }
+    return 0;
+}
+
 int main(int argc, string argv[])
 {
     if (argc != 2)
@@ -55,9 +69,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-
     int checkDigits = isDigits(argv[1]);
-
     int arrayLenght = arraySize(argv[1]);
 
     if (checkDigits != 1 || arrayLenght > 2)
@@ -66,16 +78,12 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    printf("Sucess\n");
-
     int cipher = strToInt(argv[1]);
 
-    string userText = get_string("plaintext:");
-    printf("Ciphertext: ");
-    for (int i = 0; userText[i] != '\0'; i++)
-    {
-        printf("%c", userText[i] + cipher);
-    }
+    string userText = get_string("plaintext: ");
+
+    printf("ciphertext: ");
+    charShift(userText, cipher);
 
     printf("\n\nthe array size is %i", arrayLenght);
 
