@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <string.h>
+#include <ctype.h>
 
 int isDigits(char arr[])
 {
@@ -50,13 +51,30 @@ int strToInt(char arr[])
 int charShift(string str, int number)
 {
     for (int i = 0; str[i] != '\0'; i++)
-        if (str[i] == 32 || str[i] == 44)
+        if (str[i] == 32 || str[i] == 44 || str[i] == 33)
         {
             printf("%c", str[i]);
         }
         else
         {
-            printf("%c", str[i] + number);
+            int res = str[i] + number;
+            if (islower(str[i]))   
+            {
+                for (int j = 0; res >= 122; j++)
+                {
+                    res = res - 26;
+                }  
+                printf("%c", res);
+            }
+            else if (isupper(str[i]))
+            {
+                for (int j = 0; res >= 90; j++)
+                {
+                    res = res - 26;
+                }  
+                printf("%c", res);
+            }
+
         }
     return 0;
 }
