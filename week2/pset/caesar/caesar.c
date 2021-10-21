@@ -5,16 +5,12 @@
 
 int isDigits(char arr[])
 {
-    int result;
+    int result = 0;
     for (int i = 0; arr[i] != '\0' ; i++)
     {
         if (arr[i] >= 48 && arr[i] <= 57)
         {
             result = 1;
-        }
-        else
-        {
-            result = 0;
         }
     }
     return result;
@@ -51,7 +47,7 @@ int strToInt(char arr[])
 int charShift(string str, int number)
 {
     for (int i = 0; str[i] != '\0'; i++)
-        if (str[i] == 32 || str[i] == 44 || str[i] == 33)
+        if (isspace(str[i]) || ispunct(str[i]))
         {
             printf("%c", str[i]);
         }
@@ -64,6 +60,10 @@ int charShift(string str, int number)
                 {
                     res = res - 26;
                 }  
+                for (int j = 0; res <= 96; j++)
+                {
+                    res = res + 26;
+                }
                 printf("%c", res);
             }
             else if (isupper(str[i]))
@@ -74,7 +74,6 @@ int charShift(string str, int number)
                 }  
                 printf("%c", res);
             }
-
         }
     return 0;
 }
@@ -102,10 +101,5 @@ int main(int argc, string argv[])
 
     printf("ciphertext: ");
     charShift(userText, cipher);
-
-    printf("\n\nthe array size is %i", arrayLenght);
-
-    printf("\n\nthe cipher number is %i", cipher);
-
-    printf("\n\n\ncheckdigits is %i", checkDigits);
+    printf("\n");
 }
