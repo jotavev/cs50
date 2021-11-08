@@ -1,5 +1,6 @@
 #import <stdio.h>
 #import <cs50.h>
+#import <math.h>
 
 float get_valid_number(void)
 {
@@ -12,66 +13,43 @@ float get_valid_number(void)
     return n;
 }
 
-int conversor(float number)
-{
-    int conversor = number * 100;
-    int result = conversor % 100;
-    return result;
-}
-
 int main(void)
 {
-    float recebido = get_valid_number();
+    double b = get_valid_number();
 
-    int convertedNumber = conversor(recebido);
+    b = round(b * 100);
 
-    int coin = 0;
+    int a = (int)b;
 
-    do
+    int counter = 0;
+
+    for (int i = 0; a != 0; i++)
     {
-        if (convertedNumber >= 25)
+        for (int j = 0; a >= 25; j++)
         {
-            while (convertedNumber >= 25)
-            {
-                convertedNumber = convertedNumber - 25;
-                coin++;
-            }
+            a -= 25;
+            counter++;
+            printf("0.25\n");
         }
-
-        else if (convertedNumber >= 10)
+        for (int j = 0; a >= 10 && a < 25; j++)
         {
-            while (convertedNumber >= 10)
-            {
-                convertedNumber = convertedNumber - 10;
-                coin++;
-            }
+            a -= 10;
+            counter++;
+            printf("0.10\n");
         }
-
-        else if (convertedNumber >= 5)
+        for (int j = 0; a >= 5 && a < 10; j++)
         {
-            while (convertedNumber >= 5)
-            {
-                convertedNumber = convertedNumber - 5;
-                coin++;
-            }
+            a -= 5;
+            counter++;
+            printf("0.05\n");
         }
-
-        else if (convertedNumber >= 1)
+        for (int j = 0; a < 5 && a !=  0; j++)
         {
-            while (convertedNumber >= 1)
-            {
-                convertedNumber = convertedNumber - 1;
-                coin++;
-            }
+            a -= 1;
+            counter++;
+            printf("0.01\n");
         }
     }
-    while (convertedNumber != 0);
 
-    printf("%i", coin);
+    printf("%i\n", counter);
 }
-
-// coins
-// .25
-// .10
-// .5
-// .1

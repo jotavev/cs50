@@ -22,7 +22,7 @@ int sentenceCounter(char arr[])
     int counter = 0;
     for (int i = 0; arr[i] != '\0'; i++)
     {
-        if (arr[i] == 33 || arr[i] == 46 || arr[i] == 63)
+        if (arr[i] == '!' || arr[i] == '.' || arr[i] == '?')
         {
             counter++;
         }
@@ -45,22 +45,15 @@ int wordCounter(char arr[])
     return counter;
 }
 
-float letterAverage(float letter, float word)
+float average(float letterORsentence, float word)
 {
-    float result = (letter / word) * 100;
-    return result;
-}
-
-float sentenceAverage(float sentence, float word)
-{
-    float result = (sentence / word) * 100;
-    return result;
+    return (letterORsentence / word) * 100;
 }
 
 float ind(float L, float S)
 {
-    float result = 0.0588 * L - 0.296 * S - 15.8;
-    return result;
+    
+    return 0.0588 * L - 0.296 * S - 15.8;
 }
 
 int main(void)
@@ -71,10 +64,10 @@ int main(void)
     int word = wordCounter(text);
     int sentence = sentenceCounter(text);
 
-    float LA = letterAverage(letter, word);
-    float SA = sentenceAverage(sentence, word);
+    float letterAverage = average(letter, word);
+    float sentenceAverage = average(sentence, word);
 
-    double res = ind(LA, SA);
+    double res = ind(letterAverage, sentenceAverage);
 
     int result = (int)(round(res) * 10 / 10);
 
@@ -91,9 +84,4 @@ int main(void)
     {
         printf("Grade %i\n", result);
     }
-
-
-    //float res = ind(letterAverage(letter, word), sentenceAverage(sentence, word));
-
-    //printf("%f\n", res);
 }
