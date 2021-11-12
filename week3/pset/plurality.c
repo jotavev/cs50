@@ -61,12 +61,31 @@ int main(int argc, string argv[])
 
     // Display winner of election
     print_winner();
+
+
+
+    printf("\n\n");
+    printf("%i\n", candidate_count);
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        printf("%s = ", candidates[i].name);
+        printf("%i\n", candidates[i].votes);
+    }
 }
 
 // Update vote totals given a new vote
 bool vote(string name)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(candidates[i].name, name) == 0)
+        {
+            candidates[i].votes++;
+            return true;
+        }
+    }
     return false;
 }
 
@@ -74,6 +93,22 @@ bool vote(string name)
 void print_winner(void)
 {
     // TODO
+    int higher = 0;
+    //finding who have the largest votes 
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes > higher)
+        {
+           higher = candidates[i].votes; 
+        }
+    }
+    //printing only who have largest vote
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == higher)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
     return;
 }
-
